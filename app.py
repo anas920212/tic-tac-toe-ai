@@ -1,7 +1,7 @@
 import streamlit as st
 import game
 
-st.set_page_config(page_title="Agentic Tic-Tac-Toe", page_icon="🎮", layout="centered")
+st.set_page_config(page_title="Tic-Tac-Toe", page_icon="🎮", layout="centered")
 
 st.markdown("""
     <style>
@@ -72,7 +72,7 @@ st.markdown("""
     .st-key-play_again_row {
         width: 250px;
         margin: 0 auto;
-        transform: translateX(-30px);
+        transform: translateX(-25px);
     }
 
     .st-key-play_again_row [data-testid="stButton"] {
@@ -152,6 +152,8 @@ with st.container(key="app_wrapper"):
         if st.button("🔄 Play Again", key="play_again_btn"):
             reset_game()
         st.markdown(
-            f"<p style='text-align:center; color:#999; margin-top:1rem;'>Difficulty: {st.session_state.win_streak}</p>",
+            f"<p style='text-align:center; color:#800080; margin-top:1rem; transform: translateX(-15px)'>Difficulty: {st.session_state.win_streak}</p>",
             unsafe_allow_html=True
-        )
+            
+)
+        
