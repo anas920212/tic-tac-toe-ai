@@ -1,1 +1,1 @@
-Agentic AI Tic Tac Toe
+Tic Tac Toe with AI minimax alogirthm
