@@ -20,6 +20,24 @@ st.markdown("""
         transform: translateX(100x);
     }
 
+    @media (max-width: 640px) {
+    div[data-testid="stHorizontalBlock"] {
+        flex-wrap: nowrap !important;
+    }
+    div[data-testid="column"] {
+        width: calc(33.333% - 7px) !important;
+        flex: 1 1 calc(33.333% - 7px) !important;
+        min-width: unset !important;
+    }
+    }
+            
+            @media (max-width: 640px) {
+    div[data-testid="column"] .stButton > button {
+        height: 80px;
+        font-size: 36px;
+    }
+}
+
     .title-text {
     text-align: center;
     font-size: 2.2rem;
