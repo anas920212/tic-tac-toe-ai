@@ -31,12 +31,12 @@ st.markdown("""
     }
     }
             
-            @media (max-width: 640px) {
+    @media (max-width: 640px) {
     div[data-testid="column"] .stButton > button {
         height: 80px;
         font-size: 36px;
     }
-}
+    }
 
     .title-text {
     text-align: center;
