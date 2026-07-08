@@ -152,7 +152,7 @@ with st.container(key="app_wrapper"):
         winner = st.session_state.board[winning_combo[0]]
         if winner == 'X':
             st.session_state.win_streak += 1
-        msg = "🎉 You Win!" if winner == 'X' else "🤖 Computer Wins!"
+        msg = "🎉 You Win!" if winner == 'X' else "🤖 ANAS Wins!"
         st.markdown(f'<div class="status-text">{msg}</div>', unsafe_allow_html=True)
     elif board_full:
         st.markdown('<div class="status-text">🤝 Draw!</div>', unsafe_allow_html=True)
