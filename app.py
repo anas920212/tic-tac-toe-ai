@@ -21,15 +21,17 @@ st.markdown("""
     }
     @media (max-width: 640px) {
     div[data-testid="stHorizontalBlock"] {
-        flex-wrap: nowrap !important;
+        display:grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
         gap: 6px !important;
     }
     }
 
     div[data-testid="column"] {
-        min-width: 0 !important;
-        flex: 1 1 0 !important;
         width: auto !important;
+        min-width: 0 !important;
+        flex: none !important;
+        
     }
     div[data-testid="column"] .stButton > button {
         height: 70px;
