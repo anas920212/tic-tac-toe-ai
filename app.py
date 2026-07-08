@@ -17,7 +17,7 @@ st.markdown("""
         width: 330px;
         margin: 0 auto;
         padding-top: 2rem;
-        transform: translateX(100x);
+        transform: translateX(100px);
     }
     @media (max-width: 640px) {
     div[data-testid="stHorizontalBlock"] {
@@ -44,7 +44,7 @@ st.markdown("""
     .title-text,
     .status-text,
     .st-key-play_again_row {
-        transform: none !important;
+    transform: none !important;
         }
     }
 
@@ -54,17 +54,12 @@ st.markdown("""
         flex: 1 1 0 !important;
         width: auto !important;
     }
-    div[data-testid="column"] .stButton > button {
-        height: 70px;
-        font-size: 32px;
-        width: 100%;
-    }
-
+            
     .title-text {
     text-align: center;
     font-size: 2.2rem;
     font-weight: 800;
-    color: #2d2d2d;
+    color: #ff0000;
     margin-bottom: 0.3rem;
     transform: translateX(-40px);
     }
@@ -74,7 +69,7 @@ st.markdown("""
         font-size: 1.2rem;
         margin-bottom: 1.5rem;
         color: #555555;
-        transform: translateX(-40px);
+        transform: translateX(-150px);
     }
 
     /* Parent is already exactly 330px wide, so the 3 columns will
@@ -128,6 +123,21 @@ st.markdown("""
         border-color: #2ecc71 !important;
         background: #eafff0 !important;
     }
+
+    @media (min-width: 641px) {
+    .st-key-app_wrapper {
+        transform: translateX(-40px);
+    }
+    .title-text {
+        transform: translateX(-30px);
+    }
+    .status-text {
+        transform: translateX(-20px);
+    }
+    .st-key-play_again_row {
+        transform: translateX(-30px);
+    }  
+}
     </style>
 """, unsafe_allow_html=True)
 
@@ -192,7 +202,7 @@ with st.container(key="app_wrapper"):
         if st.button("🔄 Play Again", key="play_again_btn"):
             reset_game()
         st.markdown(
-            f"<p style='text-align:center; color:#800080; margin-top:1rem; transform: translateX(-15px)'>Difficulty: {st.session_state.win_streak}</p>",
+            f"<p style='text-align:center; color:#800080; margin-top:1rem; transform: translateX(-10px)'>Difficulty: {st.session_state.win_streak}</p>",
             unsafe_allow_html=True
             
 )
