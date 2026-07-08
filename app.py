@@ -44,7 +44,7 @@ st.markdown("""
     .title-text,
     .status-text,
     .st-key-play_again_row {
-    transform: none !important;
+    transform: translateX(10px);
         }
     }
 
@@ -61,7 +61,7 @@ st.markdown("""
     font-weight: 800;
     color: #ff0000;
     margin-bottom: 0.3rem;
-    transform: translateX(-40px);
+    margin-left: -40px;
     }
             
     .status-text {
@@ -69,7 +69,7 @@ st.markdown("""
         font-size: 1.2rem;
         margin-bottom: 1.5rem;
         color: #555555;
-        transform: translateX(-150px);
+        margin-left: -25px;
     }
 
     /* Parent is already exactly 330px wide, so the 3 columns will
@@ -129,13 +129,13 @@ st.markdown("""
         transform: translateX(-40px);
     }
     .title-text {
-        transform: translateX(-30px);
+        transform: translateX(-40px);
     }
     .status-text {
-        transform: translateX(-20px);
+        transform: translateX(-25px);
     }
     .st-key-play_again_row {
-        transform: translateX(-30px);
+        transform: translateX(-25px);
     }  
 }
     </style>
