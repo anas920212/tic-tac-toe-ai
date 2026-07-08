@@ -19,23 +19,43 @@ st.markdown("""
         padding-top: 2rem;
         transform: translateX(100x);
     }
-
     @media (max-width: 640px) {
     div[data-testid="stHorizontalBlock"] {
         flex-wrap: nowrap !important;
+        gap: 6px !important;
     }
+    }
+
     div[data-testid="column"] {
-        width: calc(33.333% - 7px) !important;
-        flex: 1 1 calc(33.333% - 7px) !important;
-        min-width: unset !important;
+        min-width: 0 !important;
+        flex: 1 1 0 !important;
+        width: auto !important;
     }
+    div[data-testid="column"] .stButton > button {
+        height: 70px;
+        font-size: 32px;
+        width: 100%;
     }
             
     @media (max-width: 640px) {
-    div[data-testid="column"] .stButton > button {
-        height: 80px;
-        font-size: 36px;
+    .st-key-app_wrapper,
+    .title-text,
+    .status-text,
+    .st-key-play_again_row {
+        transform: none !important;
+        }
     }
+
+
+    div[data-testid="column"] {
+        min-width: 0 !important;
+        flex: 1 1 0 !important;
+        width: auto !important;
+    }
+    div[data-testid="column"] .stButton > button {
+        height: 70px;
+        font-size: 32px;
+        width: 100%;
     }
 
     .title-text {
