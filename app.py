@@ -9,79 +9,35 @@ st.markdown("""
         background-color: #fdfaf3;
     }
 
-    /* Single source of truth for centering everything.
-       A fixed width + margin:auto box works regardless of how many
-       nested wrapper divs Streamlit inserts inside it -- unlike flex,
-       which only affects direct children. */
+    /* ===== Base layout (applies everywhere) ===== */
     .st-key-app_wrapper {
-        width: 330px;
         margin: 0 auto;
         padding-top: 2rem;
-        transform: translateX(100px);
-    }
-    @media (max-width: 640px) {
-    div[data-testid="stHorizontalBlock"] {
-        display:grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 6px !important;
-    }
     }
 
-    div[data-testid="column"] {
-        width: auto !important;
-        min-width: 0 !important;
-        flex: none !important;
-        
-    }
-    div[data-testid="column"] .stButton > button {
-        height: 70px;
-        font-size: 32px;
-        width: 100%;
-    }
-            
-    @media (max-width: 640px) {
-    .st-key-app_wrapper,
-    .title-text,
-    .status-text,
-    .st-key-play_again_row {
-    transform: translateX(10px);
-        }
-    }
-
-
-    div[data-testid="column"] {
-        min-width: 0 !important;
-        flex: 1 1 0 !important;
-        width: auto !important;
-    }
-            
     .title-text {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: #ff0000;
-    margin-bottom: 0.3rem;
-    margin-left: -40px;
+        text-align: center;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: #ff0000;
+        margin-bottom: 0.3rem;
     }
-            
+
     .status-text {
         text-align: center;
         font-size: 1.2rem;
         margin-bottom: 1.5rem;
         color: #555555;
-        margin-left: -25px;
     }
 
-    /* Parent is already exactly 330px wide, so the 3 columns will
-       split it evenly on their own -- no extra width rule needed here */
     .st-key-app_wrapper div[data-testid="stHorizontalBlock"] {
         gap: 10px !important;
     }
 
     div[data-testid="column"] .stButton > button {
-        height: 100px;
+        height: 250px;
         width: 100%;
-        font-size: 48px;
+        font-size: 60px;
         font-weight: 900;
         border: 4px solid #3d1e6d !important;
         border-radius: 8px;
@@ -90,7 +46,7 @@ st.markdown("""
     }
     div[data-testid="column"] .stButton > button:hover {
         background: #f5f0ff !important;
-        transform: scale(1.03);
+        transform: scale(2);
     }
     div[data-testid="column"] .stButton > button:focus {
         box-shadow: none !important;
@@ -101,22 +57,13 @@ st.markdown("""
         cursor: not-allowed;
     }
 
-    /* Descendant selector (not >) so it still works no matter how many
-       wrapper levels Streamlit inserts between play_again_row and the
-       actual button div */
     .st-key-play_again_row {
-        width: 250px;
+        width: 380px;
         margin: 0 auto;
-        transform: translateX(-25px);
     }
-
     .st-key-play_again_row [data-testid="stButton"] {
         display: flex;
         justify-content: center;
-    }
-
-    .st-key-play_again_row .stButton > button {
-        width: 220px;
     }
 
     [class*="st-key-cell_win_"] .stButton > button {
@@ -124,20 +71,84 @@ st.markdown("""
         background: #eafff0 !important;
     }
 
+    .scoreboard {
+        display: flex;
+        align-items: stretch;
+        width: 90vw;
+        max-width: 300px;
+        margin: 0.5rem auto 1.2rem;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        font-family: inherit;
+    }
+    .scoreboard .team {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.6rem 0.4rem;
+        font-weight: 700;
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+        color: #ffffff;
+    }
+    .scoreboard .team.you {
+        background: #3d1e6d;
+    }
+    .scoreboard .team.computer {
+        background: #1a1a1a;
+    }
+    .scoreboard .score {
+        background: #2d2d2d;
+        color: #ffffff;
+        font-size: 1.3rem;
+        font-weight: 900;
+        padding: 0.6rem 1rem;
+        min-width: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 0.1em;
+    }
+
+    /* ===== Desktop: no manual offsets, everything aligns naturally ===== */
+
+    /* ===== Mobile-only rules: keep the 3x3 grid ===== */
+    @media (max-width: 640px) {
+        div[data-testid="stHorizontalBlock"] {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 6px !important;
+        }
+        div[data-testid="column"] {
+            width: auto !important;
+            min-width: 0 !important;
+            flex: none !important;
+        }
+        div[data-testid="column"] .stButton > button {
+            height: 70px;
+            font-size: 32px;
+        }
+    }
     @media (min-width: 641px) {
     .st-key-app_wrapper {
-        transform: translateX(-40px);
+        width: 330px;
     }
-    .title-text {
-        transform: translateX(-40px);
-    }
-    .status-text {
-        transform: translateX(-25px);
+    .st-key-app_wrapper div[data-testid="stHorizontalBlock"] {
+        width: 380px;
+        transform: translateX(40px);
     }
     .st-key-play_again_row {
-        transform: translateX(-25px);
-    }  
-}
+        margin: 0 auto;
+        
+    }
+    .st-key-play_again_row .stButton > button {
+        width: 320px;
+    }
+    
+    }
+            
     </style>
 """, unsafe_allow_html=True)
 
@@ -145,6 +156,12 @@ if 'board' not in st.session_state:
     st.session_state.board = [' ' for _ in range(10)]
 if 'win_streak' not in st.session_state:
     st.session_state.win_streak = 0
+if 'streak_counted' not in st.session_state:
+    st.session_state.streak_counted = False
+if 'user_score' not in st.session_state:
+    st.session_state.user_score = 0
+if 'computer_score' not in st.session_state:
+    st.session_state.computer_score = 0
 
 def reset_game():
     st.session_state.board = [' ' for _ in range(10)]
@@ -158,10 +175,23 @@ game_over = bool(winning_combo) or board_full
 with st.container(key="app_wrapper"):
     st.markdown('<div class="title-text">🎮 Tic-Tac-Toe</div>', unsafe_allow_html=True)
 
+    st.markdown(f"""
+    <div class="scoreboard">
+        <div class="team you">YOU</div>
+        <div class="score">{st.session_state.user_score} - {st.session_state.computer_score}</div>
+        <div class="team computer">ANAS</div>
+    </div>
+    """, unsafe_allow_html=True)
+
     if winning_combo:
         winner = st.session_state.board[winning_combo[0]]
-        if winner == 'X':
-            st.session_state.win_streak += 1
+        if not st.session_state.streak_counted:
+            if winner == 'X':
+                st.session_state.win_streak += 1
+                st.session_state.user_score += 1
+            else:
+                st.session_state.computer_score += 1
+            st.session_state.streak_counted = True
         msg = "🎉 You Win!" if winner == 'X' else "🤖 ANAS Wins!"
         st.markdown(f'<div class="status-text">{msg}</div>', unsafe_allow_html=True)
     elif board_full:
@@ -202,8 +232,11 @@ with st.container(key="app_wrapper"):
         if st.button("🔄 Play Again", key="play_again_btn"):
             reset_game()
         st.markdown(
-            f"<p style='text-align:center; color:#800080; margin-top:1rem; transform: translateX(-10px)'>Difficulty: {st.session_state.win_streak}</p>",
+            f"<p style='text-align:center; color:#800080; margin-top:1rem;'>Difficulty: {st.session_state.win_streak}</p>",
             unsafe_allow_html=True
-            
+        )
+
+st.markdown(
+    "<p style='text-align:center; color:#999; margin-top:1rem; font-size:0.85rem;'>Developed by ANAS-AI@2026</p>",
+    unsafe_allow_html=True
 )
-        
