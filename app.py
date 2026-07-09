@@ -35,9 +35,9 @@ st.markdown("""
     }
 
     div[data-testid="column"] .stButton > button {
-        height: 250px;
+        height: 100px;
         width: 100%;
-        font-size: 60px;
+        font-size: 48px;
         font-weight: 900;
         border: 4px solid #3d1e6d !important;
         border-radius: 8px;
@@ -59,6 +59,7 @@ st.markdown("""
 
     .st-key-play_again_row {
         margin: 0 auto;
+        transform: translateX(-20px);
     }
     .st-key-play_again_row [data-testid="stButton"] {
         display: flex;
@@ -146,14 +147,14 @@ st.markdown("""
         transform: translateX(40px);
     }
     .st-key-play_again_row {
-            width: 90vw;
-            max-width: 300px;
+            width: 100vw;
+            max-width: 250px;
             margin: 0 auto;
-            transform: translateX(30px);
         
     }
     .st-key-play_again_row .stButton > button {
-        width: 320px;
+        width: 400px;
+        transform: translateX(20px);
     }
     
     }
@@ -241,11 +242,11 @@ with st.container(key="app_wrapper"):
         if st.button("🔄 Play Again", key="play_again_btn"):
             reset_game()
         st.markdown(
-            f"<p style='text-align:center; color:#800080; margin-top:1rem;'>Difficulty: {st.session_state.win_streak}</p>",
-            unsafe_allow_html=True
-        )
+        f"<p style='text-align:center; color:#800080; margin-top:0.3rem; transform: translateX(20px);'>Difficulty: {st.session_state.win_streak}</p>",
+        unsafe_allow_html=True
+)
 
 st.markdown(
-    "<p style='text-align:center; color:#999; margin-top:1rem; font-size:0.85rem;'>Developed by ANAS-AI@2026</p>",
+    "<p style='position:fixed; bottom:0; left:0; right:0; text-align:center; color:#999; margin-top:1rem; padding:0.5rem; font-size:0.85rem;'>Developed by ANAS-AI@2026</p>",
     unsafe_allow_html=True
 )
