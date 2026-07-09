@@ -12,7 +12,7 @@ st.markdown("""
     /* ===== Base layout (applies everywhere) ===== */
     .st-key-app_wrapper {
         margin: 0 auto;
-        padding-top: 2rem;
+        padding-top: 5rem;
     }
 
     .title-text {
@@ -60,6 +60,7 @@ st.markdown("""
     .st-key-play_again_row {
         width: 380px;
         margin: 0 auto;
+        transform: translateX(15px);
     }
     .st-key-play_again_row [data-testid="stButton"] {
         display: flex;
@@ -120,6 +121,7 @@ st.markdown("""
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
             gap: 6px !important;
+            transform: translateX(15px);
         }
         div[data-testid="column"] {
             width: auto !important;
@@ -127,7 +129,7 @@ st.markdown("""
             flex: none !important;
         }
         div[data-testid="column"] .stButton > button {
-            height: 70px;
+            height: 60px;
             font-size: 32px;
         }
     }
@@ -140,7 +142,7 @@ st.markdown("""
         transform: translateX(40px);
     }
     .st-key-play_again_row {
-        margin: 0 auto;
+            margin: 0 auto;
         
     }
     .st-key-play_again_row .stButton > button {
