@@ -159,6 +159,24 @@ st.markdown("""
     
     }
             
+    .difficulty-text {
+    text-align: center;
+    color: #800080;
+    margin-top: 0.3rem;
+    }
+
+    @media (min-width: 641px) {
+    .difficulty-text {
+        transform: translateX(20px);
+    }
+}
+
+    @media (max-width: 640px) {
+    .difficulty-text {
+        transform: translateX(0px);
+    }
+}
+
     </style>
 """, unsafe_allow_html=True)
 
@@ -242,9 +260,10 @@ with st.container(key="app_wrapper"):
         if st.button("🔄 Play Again", key="play_again_btn"):
             reset_game()
         st.markdown(
-        f"<p style='text-align:center; color:#800080; margin-top:0.3rem; transform: translateX(20px);'>Difficulty: {st.session_state.win_streak}</p>",
+        f"<p class='difficulty-text'>Difficulty: {st.session_state.win_streak}</p>",
         unsafe_allow_html=True
 )
+
 
 st.markdown(
     "<p style='position:fixed; bottom:0; left:0; right:0; text-align:center; color:#999; margin-top:1rem; padding:0.5rem; font-size:0.85rem;'>Developed by ANAS-AI@2026</p>",
