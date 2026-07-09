@@ -58,9 +58,7 @@ st.markdown("""
     }
 
     .st-key-play_again_row {
-        width: 380px;
         margin: 0 auto;
-        transform: translateX(15px);
     }
     .st-key-play_again_row [data-testid="stButton"] {
         display: flex;
@@ -121,7 +119,7 @@ st.markdown("""
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
             gap: 6px !important;
-            transform: translateX(15px);
+            transform: translateX(60px);
         }
         div[data-testid="column"] {
             width: auto !important;
@@ -131,6 +129,12 @@ st.markdown("""
         div[data-testid="column"] .stButton > button {
             height: 60px;
             font-size: 32px;
+        }
+        
+        .st-key-play_again_row {
+        width: 90vw;
+        max-width: 300px;
+        transform: translateX(15px);
         }
     }
     @media (min-width: 641px) {
@@ -142,7 +146,10 @@ st.markdown("""
         transform: translateX(40px);
     }
     .st-key-play_again_row {
+            width: 90vw;
+            max-width: 300px;
             margin: 0 auto;
+            transform: translateX(30px);
         
     }
     .st-key-play_again_row .stButton > button {
